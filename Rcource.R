@@ -6,7 +6,6 @@ library(corrplot) # Visualization of correlation matrix
 sarco.dna<-read.dna(file="sarco_seq.fasta", format = "fasta")
 sarco.dna
 class(sarco.dna)
-annot <- read.csv("sarcoData.csv", header=TRUE, row.names=1) #read in the annotations
 
 ## Multiple sequence alignment
 
@@ -32,9 +31,6 @@ library(adegenet)
 snpposi.plot(x=as.matrix(sarco.mafft.ng), codon=FALSE)
 # Position of polymorphism within alignment - differentiating codons
 snpposi.plot(as.matrix(sarco.mafft.ng))
-# When converting to genind object, only polymorphic loci are kept - threshold for polymorphism can be arbitrary (polyThres=...)
-sarco.genind <- DNAbin2genind(x=sarco.mafft.ng, polyThres=0.01)
-sarco.genind # See it
 # Check sequences
 # Nucleotide diversity
 pegas::nuc.div(x=sarco.mafft.ng)
